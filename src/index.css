@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-paw-orange: #F28C38;
+  --color-paw-orange-dark: #B9520C;
+  --color-paw-green: #3FA796;
+  --color-paw-cream: #FFF9F2;
+  --color-paw-ink: #1F2A37;
+  --color-paw-muted: #6B7280;
+  --color-paw-success: #2E9E6B;
+  --color-paw-warning: #F5B031;
+  --color-paw-error: #E5484D;
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 1.5rem;
+  --shadow-soft: 0 12px 32px rgba(75, 52, 27, 0.09);
+}
+
+@layer base {
+  body { background: #F4EFE9; color: var(--color-paw-ink); font-family: var(--font-sans); }
+  *:focus-visible { outline: 3px solid color-mix(in srgb, var(--color-paw-orange) 45%, transparent); outline-offset: 2px; }
+}
+@keyframes paw-pulse { 0%,100% { transform: scale(1); opacity: 1 } 50% { transform: scale(1.12); opacity: .65 } }
+@keyframes wave { 0%,100% { height: 20% } 50% { height: 100% } }
+@keyframes pop { 0% { transform: scale(.85); opacity: 0 } 100% { transform: scale(1); opacity: 1 } }
+.live-dot { animation: paw-pulse 1.7s ease-in-out infinite; }
+.wave-bar { animation: wave .8s ease-in-out infinite; }
+.screen-enter { animation: pop .24s ease-out; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { scrollbar-width: none; }
