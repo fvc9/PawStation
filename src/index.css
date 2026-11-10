@@ -2,22 +2,22 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-paw-orange: #F28C38;
-  --color-paw-orange-dark: #B9520C;
-  --color-paw-green: #3FA796;
-  --color-paw-cream: #FFF9F2;
-  --color-paw-ink: #1F2A37;
-  --color-paw-muted: #6B7280;
-  --color-paw-success: #2E9E6B;
-  --color-paw-warning: #F5B031;
-  --color-paw-error: #E5484D;
   --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --color-paw-orange: var(--paw-primary);
+  --color-paw-orange-dark: var(--paw-hover);
+  --color-paw-green: var(--paw-accent);
+  --color-paw-cream: var(--paw-background);
+  --color-paw-ink: var(--paw-text);
+  --color-paw-muted: var(--paw-muted);
+  --color-paw-success: #4C9A5F;
+  --color-paw-warning: #E8731C;
+  --color-paw-error: #D64545;
   --radius-card: 1.5rem;
   --shadow-soft: 0 12px 32px rgba(75, 52, 27, 0.09);
 }
-
+:root { --paw-primary:#ECB948; --paw-hover:#D9A32E; --paw-pressed:#C48F1F; --paw-soft:#F7E3AC; --paw-on-primary:#3B2A0A; --paw-secondary:#D9642E; --paw-accent:#2F8F83; --paw-background:#FFF0C9; --paw-surface:#FFF8E3; --paw-border:#EBD28A; --paw-text:#3B2A0A; --paw-muted:#7A6330; }
 @layer base {
-  body { background: #F4EFE9; color: var(--color-paw-ink); font-family: var(--font-sans); }
+  body { background: var(--paw-background); color: var(--color-paw-ink); font-family: var(--font-sans); }
   *:focus-visible { outline: 3px solid color-mix(in srgb, var(--color-paw-orange) 45%, transparent); outline-offset: 2px; }
 }
 @keyframes paw-pulse { 0%,100% { transform: scale(1); opacity: 1 } 50% { transform: scale(1.12); opacity: .65 } }
@@ -28,3 +28,13 @@
 .screen-enter { animation: pop .24s ease-out; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { scrollbar-width: none; }
+
+[data-paw-theme] { color-scheme: light; }
+
+@theme { --color-paw-surface: var(--paw-surface); --color-paw-border: var(--paw-border); --color-paw-secondary: var(--paw-secondary); --color-paw-soft: var(--paw-soft); }
+.bg-white { background-color: var(--paw-surface) !important; }
+.border-stone-100,.border-stone-200 { border-color: var(--paw-border) !important; }
+
+.bg-paw-orange { color: var(--paw-on-primary); }
+.rounded-card { border: 1px solid var(--paw-border); }
+input,select { color: var(--paw-text); }
